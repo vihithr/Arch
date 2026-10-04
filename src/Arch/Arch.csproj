@@ -73,6 +73,14 @@
   <ItemGroup>
     <InternalsVisibleTo Include="Arch.Benchmarks" />
     <InternalsVisibleTo Include="Arch.Tests" />
+    <!--
+      Local addition (not upstream). Grants the first-party engine access to World.EntityInfo /
+      World.RecycledIds, which Simulation.CopyStateFrom (RunAhead world copy) needs in order to
+      rebase entity handles and replicate the recycled-id queue by hand instead of going through
+      the allocating public Create/Destroy paths. Arch is vendored as source precisely so this is
+      possible. If this file is ever refreshed from upstream, this entry must be re-added.
+    -->
+    <InternalsVisibleTo Include="UniversalFrameWork2D" />
   </ItemGroup>
 
   <ItemGroup>
